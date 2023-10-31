@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using CrudApi.Models;
+using CrudApi.Repositories.Interfaces;
 
 namespace CrudApi.Repositories
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly ApplicationContext _context;
 

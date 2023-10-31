@@ -5,6 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using CrudApi.Models;
+using CrudApi.Repositories.Interfaces;
+using CrudApi.Repositories;
+
 
 namespace CrudApi
 {
@@ -24,6 +27,10 @@ namespace CrudApi
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                     new MySqlServerVersion(new Version(8, 0, 21)));
             });
+
+            services.AddScoped<UsuarioRepository>();
+
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             services.AddControllers();
         }
