@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ListGroup, Button } from 'react-bootstrap';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ListarUsuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -15,13 +18,18 @@ const ListarUsuarios = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Lista de Usuários</h2>
-      <ul>
+    <div className="container mt-5">
+      <h2 className="mb-4">Lista de Usuários</h2>
+      <ListGroup>
         {usuarios.map(usuario => (
-          <li key={usuario.id}>{usuario.nome}</li>
+          <ListGroup.Item key={usuario.id}>{usuario.nome}</ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
+      <Link to="/criar">
+        <Button variant="primary" className="mt-3">
+          Criar Novo Usuário
+        </Button>
+      </Link>
     </div>
   );
 };

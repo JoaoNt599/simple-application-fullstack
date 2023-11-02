@@ -26,10 +26,9 @@ namespace CrudApi
             {
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                     new MySqlServerVersion(new Version(8, 0, 21)));
-            });
+            }, ServiceLifetime.Scoped);
 
             services.AddScoped<UsuarioRepository>();
-
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             services.AddControllers();

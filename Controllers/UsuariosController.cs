@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CrudApi.Models;
-using CrudApi.Repositories;
+using CrudApi.Repositories.Interfaces;
 
 namespace CrudApi.Controllers
 {
@@ -8,9 +8,9 @@ namespace CrudApi.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly UsuarioRepository _usuarioRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuariosController(UsuarioRepository usuarioRepository)
+        public UsuariosController(IUsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
         }

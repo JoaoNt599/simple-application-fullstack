@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Aplicação CRUD</h1>
+        <h1>Cadastro de Usuários</h1>
         <Routes>
           <Route path="/" element={<ListarUsuarios />} />
           <Route path="/criar" element={<CriarUsuario />} />
